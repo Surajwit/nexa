@@ -13,7 +13,8 @@ def start_conversation(title: str = None):
 
 
 @frappe.whitelist()
-def send_message(conversation: str, message: str, context: dict = None):
+def send_message(conversation: str, message: str, context: str = None):
+	context = frappe.parse_json(context) if context else {}
 	conv = frappe.get_doc("Nexa Conversation", conversation)
 	if conv.user != frappe.session.user:
 		frappe.throw("Not permitted", frappe.PermissionError)
