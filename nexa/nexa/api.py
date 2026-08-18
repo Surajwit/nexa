@@ -45,7 +45,8 @@ def send_message(conversation: str, message: str, context: str = None):
 
 
 @frappe.whitelist()
-def confirm_tool_call(conversation: str, tool_name: str, tool_input: dict, approved: bool):
+def confirm_tool_call(conversation: str, tool_name: str, tool_input: str, approved: bool):
+	tool_input = frappe.parse_json(tool_input) if tool_input else {}
 	if not approved:
 		return {"status": "cancelled"}
 	if tool_name not in NEEDS_CONFIRMATION:
