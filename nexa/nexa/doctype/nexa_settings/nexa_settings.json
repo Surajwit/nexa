@@ -1,0 +1,18 @@
+{
+ "doctype": "DocType",
+ "name": "Nexa Settings",
+ "module": "Nexa",
+ "issingle": 1,
+ "engine": "InnoDB",
+ "field_order": ["provider", "model", "api_key", "system_prompt", "enabled"],
+ "fields": [
+  {"fieldname": "provider", "fieldtype": "Select", "label": "Provider", "options": "OpenAI\nAnthropic"},
+  {"fieldname": "model", "fieldtype": "Data", "label": "Model", "default": "claude-sonnet-4-6"},
+  {"fieldname": "api_key", "fieldtype": "Password", "label": "API Key"},
+  {"fieldname": "system_prompt", "fieldtype": "Long Text", "label": "System Prompt"},
+  {"fieldname": "enabled", "fieldtype": "Check", "label": "Enabled", "default": "1"}
+ ],
+ "permissions": [
+  {"role": "System Manager", "read": 1, "write": 1}
+ ]
+}

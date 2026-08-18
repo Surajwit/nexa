@@ -1,0 +1,20 @@
+{
+ "doctype": "DocType",
+ "name": "Nexa Message",
+ "module": "Nexa",
+ "autoname": "hash",
+ "engine": "InnoDB",
+ "field_order": ["conversation", "role", "content", "reference_doctype", "reference_name", "timestamp"],
+ "fields": [
+  {"fieldname": "conversation", "fieldtype": "Link", "label": "Conversation", "options": "Nexa Conversation", "reqd": 1, "in_list_view": 1},
+  {"fieldname": "role", "fieldtype": "Select", "label": "Role", "options": "user\nassistant\ntool", "reqd": 1},
+  {"fieldname": "content", "fieldtype": "Long Text", "label": "Content"},
+  {"fieldname": "reference_doctype", "fieldtype": "Link", "label": "Reference Doctype", "options": "DocType"},
+  {"fieldname": "reference_name", "fieldtype": "Dynamic Link", "label": "Reference Name", "options": "reference_doctype"},
+  {"fieldname": "timestamp", "fieldtype": "Datetime", "label": "Timestamp", "default": "Now"}
+ ],
+ "permissions": [
+  {"role": "System Manager", "read": 1, "write": 1, "create": 1, "delete": 1},
+  {"role": "All", "read": 1, "write": 1, "create": 1}
+ ]
+}
