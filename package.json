@@ -1,0 +1,9 @@
+{
+  "name": "nexa",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Nexa — AI chatbot assistant embedded across ERPNext",
+  "scripts": {
+    "build": "echo 'Nexa assets are bundled by Frappe'"
+  }
+}
