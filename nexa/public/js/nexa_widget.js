@@ -65,6 +65,15 @@ nexa.Widget = class {
 	}
 };
 
-$(document).on("app_ready", () => {
-	frappe.nexa = new nexa.Widget();
-});
+function init_nexa() {
+    if (!frappe.nexa) {
+        frappe.nexa = new nexa.Widget();
+    }
+}
+
+if (document.readyState === "loading") {
+    $(document).on("app_ready", init_nexa);
+    $(document).ready(init_nexa);
+} else {
+    init_nexa();
+}
